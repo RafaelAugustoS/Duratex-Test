@@ -11,22 +11,24 @@ import * as funcCalc from '../utils/calc'
 const WIDTH = Dimensions.get('window').width
 
 const Card = (props) => {
+	const { title, image, description } = props
 	return(
 		<View style={styles.Card}>
 			<Image 
-				source={{uri: 'https://www.tuacasa.com.br/wp-content/uploads/2016/01/como-decorar-quarto-de-casal.jpg'}}
+				source={{uri: image}}
 				style={styles.Image}
 				resizeMode="cover"
 			/>
-			<Text style={styles.Title}>Lorem Ipsum</Text>
-			<Text style={styles.Description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ex ullamcorper, mattis ipsum</Text>
+			<Text style={styles.Title}>{ title }</Text>
+			<Text style={styles.Description}>{ description }</Text>
 		</View>
 	)
 }
 
 const styles = StyleSheet.create({
 	Card: {
-		width: funcCalc.CalcPercentage(WIDTH, 70)
+		width: funcCalc.CalcPercentage(WIDTH, 70),
+		marginLeft: 10
 	},
 	Image: {
 		width: '100%',
