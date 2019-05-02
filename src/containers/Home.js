@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ScrollView } from 'react-native'
 import Section from '../components/Section/Section'
+import Banner from '../components/Section/Banner'
 import * as apiMethods from '../services'
 import Reactotron from 'reactotron-react-native'
 
@@ -23,6 +24,7 @@ const Home = () => {
 
 	return(
   	<ScrollView>
+			<Banner />
 			{
 				section && section.map(item => 
 					<Section 
