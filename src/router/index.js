@@ -1,4 +1,7 @@
-import { createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation'
+import React from 'react'
+import { Image, TouchableOpacity, View } from 'react-native'
+import { createStackNavigator, createDrawerNavigator, createAppContainer, NavigationActions } from 'react-navigation'
+import { DrawerIcon, Logo } from '../components/common'
 import Home from '../containers/Home'
 
 const Drawer = createDrawerNavigator({
@@ -6,7 +9,15 @@ const Drawer = createDrawerNavigator({
 })
 
 const AppNavigator = createStackNavigator({
-	Drawer
+	Home: {
+		screen: Drawer,
+		navigationOptions: ({ navigation }) => ({
+			headerLeft: <DrawerIcon navigation={navigation} />,
+			headerTitle: <Logo />
+		})
+	}
 })
+
+
 
 export default createAppContainer(AppNavigator)
